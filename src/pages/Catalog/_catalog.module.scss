@@ -1,0 +1,92 @@
+.container {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  max-width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: lightcoral;
+}
+
+.movieGrid {
+  position: relative;
+  padding: 3rem 0 0 0;
+  width: min(90%, 300rem);
+
+  display: grid;
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-auto-rows: 25rem;
+}
+
+.movie {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+
+  .poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    transition: transform 100ms cubic-bezier(.17,.59,.72,1);
+  }
+
+  .smoke {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(3,1,34);
+    background: linear-gradient(0deg, rgba(3,1,34,0.7122199221485469) 0%, rgba(255,0,0,0) 54%);
+  }
+
+  .movieContent {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+  }
+
+  .movieTitle {
+    color: white;
+    padding: 0 1em;
+  }
+
+  &:hover {
+    .poster {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.scrollWatcher {
+  position: absolute;
+  width: 20px;
+  aspect-ratio: 1;
+
+  bottom: 10rem;
+  left: 50%;
+  z-index: 1;
+}
+
+.loading {
+  animation: rotate 1s infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

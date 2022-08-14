@@ -12,6 +12,7 @@ import { MoviesApi } from "@core/network";
 import { IDiscover, IMovie } from "@core/models";
 
 import styles from "./_catalog.module.scss";
+import { MoviePoster } from "../../components/MoviePoster";
 
 const fetchMovies = (page: number) => {
   return MoviesApi.get<IDiscover>(`/discover/movie?page=${page}`);
@@ -59,23 +60,7 @@ export const CatalogPage: Component = () => {
   return (
     <main class={styles.container}>
       <div class={styles.movieGrid}>
-        <For each={movies()}>
-          {(item) => (
-            <div class={styles.movie}>
-              <picture>
-                <img
-                  class={styles.poster}
-                  src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                  loading="lazy"
-                />
-              </picture>
-              <div class={styles.smoke} />
-              <div class={styles.movieContent}>
-                <h4 class={styles.movieTitle}>{item.original_title}</h4>
-              </div>
-            </div>
-          )}
-        </For>
+        <For each={movies()}>{(item) => <MoviePoster movie={item} />}</For>
         <div class={styles.scrollWatcher} id="scroll" />
       </div>
     </main>

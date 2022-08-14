@@ -7,7 +7,7 @@ const MoviePage = lazy(() => import("./pages/Movie"));
 
 const App: Component = () => {
   return (
-    <Routes>
+    <Routes base="/solidjs-movie-catalog">
       <Route path="/" component={CatalogPage} />
       <Route path="/movie" component={MoviePage} />
     </Routes>

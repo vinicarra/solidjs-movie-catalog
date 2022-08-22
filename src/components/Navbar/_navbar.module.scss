@@ -1,0 +1,25 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: var(--navbarHeight);
+  z-index: 10;
+
+  background-color: var(--clr-background);
+  color: var(--clr-headline);
+}
+
+.navList {
+  display: flex;
+  margin: 0;
+  padding: 0 2rem;
+  list-style: none;
+
+  height: 100%;
+  align-items: center;
+  gap: 1em;
+
+  li {
+    color: var(--clr-headline);
+  }
+}

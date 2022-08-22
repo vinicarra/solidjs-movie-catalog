@@ -1,5 +1,23 @@
+:root {
+  --navbarHeight: 3.5em;
+
+  /* Colors */
+  --clr-background: #0f0e17;
+  --clr-headline: #fffffe;
+  --clr-paragraph: #a7a9be;
+  --clr-button: #ff8906;
+  --clr-buttonText: #fffffe;
+  --clr-stroke: black;
+  --clr-main: #fffffe;
+  --clr-highlight: #ff8906;
+  --clr-secondary: #f25f4c;
+  --clr-tertiary: #e53170;
+}
+
+
 body {
   margin: 0;
+  font-size: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +28,26 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #7f5af0 #f3f1f1;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f3f1f1;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #7f5af0;
+  border-radius: 10px;
+  border: 2px solid #f3f1f1;
 }

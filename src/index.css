@@ -51,3 +51,7 @@ code {
   border-radius: 10px;
   border: 2px solid #f3f1f1;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -6,13 +6,12 @@ import {
   For,
   onCleanup,
   onMount,
-  Show,
 } from "solid-js";
+import { MoviePoster, Navbar } from "@components/index";
 import { MoviesApi } from "@core/network";
 import { IDiscover, IMovie } from "@core/models";
 
 import styles from "./_catalog.module.scss";
-import { MoviePoster } from "../../components/MoviePoster";
 
 const fetchMovies = (page: number) => {
   return MoviesApi.get<IDiscover>(`/discover/movie?page=${page}`);
@@ -59,6 +58,7 @@ export const CatalogPage: Component = () => {
 
   return (
     <main class={styles.container}>
+      <Navbar />
       <div class={styles.movieGrid}>
         <For each={movies()}>{(item) => <MoviePoster movie={item} />}</For>
         <div class={styles.scrollWatcher} id="scroll" />

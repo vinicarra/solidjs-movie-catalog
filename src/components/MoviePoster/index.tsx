@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import { IMovie } from "@core/models";
+import { IMovie, Movie } from "@core/models";
 
 import styles from "./_moviePoster.module.scss";
 import { Link } from "@solidjs/router";
@@ -18,6 +18,7 @@ export const MoviePoster: Component<IMoviePosterProps> = (props) => {
             alt="Movie poster"
             loading="lazy"
             src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`}
+            style={{ "background-color": Movie.getPosterColor() }}
           />
         </picture>
         <div class={styles.fade} />

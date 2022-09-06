@@ -12,7 +12,8 @@
     "noEmit": true,
     "isolatedModules": true,
     "paths": {
-      "@core/*": ["./src/core/*"]
+      "@core/*": ["./src/core/*"],
+      "@components/*": ["./src/components/*"]
     }
   },
   "include": ["src"]

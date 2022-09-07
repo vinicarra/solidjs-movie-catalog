@@ -1,15 +1,15 @@
+import { MoviePoster, Navbar } from "@components/index";
+import { IDiscover, IMovie } from "@core/models";
+import { MoviesApi } from "@core/network";
 import type { Component } from "solid-js";
 import {
+  For,
   createEffect,
   createResource,
   createSignal,
-  For,
   onCleanup,
   onMount,
 } from "solid-js";
-import { MoviePoster, Navbar } from "@components/index";
-import { MoviesApi } from "@core/network";
-import { IDiscover, IMovie } from "@core/models";
 
 import styles from "./_catalog.module.scss";
 
@@ -57,11 +57,14 @@ export const CatalogPage: Component = () => {
   });
 
   return (
-    <main class={styles.container}>
+    <main class="relative h-100 bg-background max-w-full">
       <Navbar />
-      <div class={styles.movieGrid}>
+      <div class="relative pt-4 w-11/12 m-auto grid grid-cols-catalog gap-3">
         <For each={movies()}>{(item) => <MoviePoster movie={item} />}</For>
-        <div class={styles.scrollWatcher} id="scroll" />
+        <div
+          class="absolute w-20 aspect-square bottom-10 left-1/2"
+          id="scroll"
+        />
       </div>
     </main>
   );

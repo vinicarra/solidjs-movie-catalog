@@ -1,25 +1,13 @@
-.navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: var(--navbarHeight);
-  z-index: 10;
-
-  background-color: #363441;
-  color: var(--clr-headline);
+.menuBackdrop {
+  background-color: black;
+  animation: backdropAnim 250ms forwards;
 }
 
-.navList {
-  display: flex;
-  margin: 0;
-  padding: 0 2rem;
-  list-style: none;
-
-  height: 100%;
-  align-items: center;
-  gap: 1em;
-
-  li {
-    color: var(--clr-headline);
+@keyframes backdropAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: .4;
   }
 }

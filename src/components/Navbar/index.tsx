@@ -1,7 +1,6 @@
-import { Component, createSignal } from "solid-js";
-
 import styles from "./_navbar.module.scss";
 import { Link } from "@solidjs/router";
+import { Component, createSignal } from "solid-js";
 
 export const Navbar: Component = () => {
   const [menuOpen, setMenuOpen] = createSignal(false);
@@ -29,13 +28,15 @@ export const Navbar: Component = () => {
         </ul>
       </nav>
       <div
-        class="md:hidden fixed inset-0 bg-black bg-opacity-40 z-20"
+        class="md:hidden fixed inset-0 z-20 opacity-0"
         classList={{
+          [styles.menuBackdrop]: true,
           hidden: !menuOpen(),
         }}
         onClick={() => setMenuOpen(false)}
       />
       <menu
+        aria-expanded={menuOpen()}
         class="transition-[left] md:hidden fixed top-0 bottom-0 w-3/5 sm:w-1/2 bg-black z-30"
         classList={{ "left-0": menuOpen(), "-left-full": !menuOpen() }}
       >

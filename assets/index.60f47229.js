@@ -1,0 +1,1 @@
+import{u as o,i as a,t as n}from"./index.f13e4c28.js";const r=n("<h2></h2>"),i=()=>{const[e]=o();return(()=>{const t=r.cloneNode(!0);return a(t,()=>e()?.data.original_title||"Loading"),t})()};export{i as MoviePage,i as default};

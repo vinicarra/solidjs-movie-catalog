@@ -1,9 +1,10 @@
-import { MoviePoster, Navbar } from "@components/index";
+import { MoviePoster, MoviePosterPlaceholder, Navbar } from "@components/index";
 import { IDiscover, IMovie } from "@core/models";
 import { MoviesApi } from "@core/network";
 import type { Component } from "solid-js";
 import {
   For,
+  Show,
   createEffect,
   createResource,
   createSignal,
@@ -59,13 +60,20 @@ export const CatalogPage: Component = () => {
   return (
     <main class="relative h-100 bg-background max-w-full">
       <Navbar />
-      <div class="relative pt-4 w-11/12 m-auto grid grid-cols-catalog gap-3">
+      <div class="relative py-4 w-11/12 m-auto grid grid-cols-catalog gap-3">
         <For each={movies()}>{(item) => <MoviePoster movie={item} />}</For>
         <div
           class="absolute w-20 aspect-square bottom-10 left-1/2"
           id="scroll"
         />
       </div>
+      <Show when={!res.loading}>
+        <div class="w-full py-4 flex justify-center">
+          <span class="text-3xl text-red-400">
+            <i class="fa fa-spinner animate-spin"></i>
+          </span>
+        </div>
+      </Show>
     </main>
   );
 };

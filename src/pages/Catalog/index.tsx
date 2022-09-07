@@ -67,7 +67,7 @@ export const CatalogPage: Component = () => {
           id="scroll"
         />
       </div>
-      <Show when={!res.loading}>
+      <Show when={res.loading}>
         <div class="w-full py-4 flex justify-center">
           <span class="text-3xl text-red-400">
             <i class="fa fa-spinner animate-spin"></i>

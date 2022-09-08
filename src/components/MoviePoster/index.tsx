@@ -1,7 +1,8 @@
 import { IMovie, Movie } from "@core/models";
 import { Link } from "@solidjs/router";
-import { Component } from "solid-js";
+import { Component, Show, createSignal } from "solid-js";
 
+import placeholder from "../../assets/moviePosterPlaceholder.jpg";
 import styles from "./_moviePoster.module.scss";
 
 interface IMoviePosterProps {
@@ -9,18 +10,33 @@ interface IMoviePosterProps {
 }
 
 export const MoviePoster: Component<IMoviePosterProps> = (props) => {
+  const [imgStatus, setImgStatus] = createSignal<
+    "loaded" | "error" | "loading"
+  >("loading");
+
   return (
     <Link href={`/movie/${props.movie.id}`}>
       <div class="relative w-full overflow-hidden aspect-2/3 group">
-        <picture>
+        <div>
+          <Show when={imgStatus() !== "error"}>
+            <img
+              class="absolute inset-0 w-full h-full object-fill transition-transform duration-300 ease-out group-hover:scale-110"
+              alt="Movie poster"
+              loading="lazy"
+              src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`}
+              style={{ "background-color": Movie.getPosterColor() }}
+              onload={() => setImgStatus("loaded")}
+              onerror={() => setImgStatus("error")}
+            />
+          </Show>
           <img
-            class="absolute inset-0 w-full h-full object-fill transition-transform duration-300 ease-out group-hover:scale-110"
-            alt="Movie poster"
-            loading="lazy"
-            src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`}
-            style={{ "background-color": Movie.getPosterColor() }}
+            class="absolute inset-0 w-full h-full object-fill blur-lg"
+            classList={{
+              hidden: imgStatus() === "loaded",
+            }}
+            src={placeholder}
           />
-        </picture>
+        </div>
         <div
           class="absolute inset-0 w-full h-full"
           classList={{ [styles.fade]: true }}

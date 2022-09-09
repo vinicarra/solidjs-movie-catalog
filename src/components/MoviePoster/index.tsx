@@ -18,7 +18,7 @@ export const MoviePoster: Component<IMoviePosterProps> = (props) => {
   >("loading");
 
   return (
-    <Link href={`/movie/${mProps.movie.id}`}>
+    <Link href={`movie/${mProps.movie.id}`}>
       <div class="relative w-full overflow-hidden aspect-2/3 group">
         <div>
           <Show when={imgStatus() !== "error"}>

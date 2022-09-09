@@ -58,8 +58,7 @@ export const CatalogPage: Component = () => {
   });
 
   return (
-    <main class="relative h-100 bg-background max-w-full">
-      <Navbar />
+    <>
       <div class="relative py-4 w-11/12 m-auto grid grid-cols-catalog gap-3">
         <For each={movies()}>{(item) => <MoviePoster movie={item} />}</For>
         <div
@@ -74,6 +73,6 @@ export const CatalogPage: Component = () => {
           </span>
         </div>
       </Show>
-    </main>
+    </>
   );
 };

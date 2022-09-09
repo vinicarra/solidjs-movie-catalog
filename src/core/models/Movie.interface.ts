@@ -1,11 +1,19 @@
 type RGB = `rgb(${number}, ${number}, ${number})`;
 
+export interface IMovieLanguage {
+  name: string;
+  iso_639_1: string;
+}
+
 export interface IMovie {
   id: number;
   original_title: string;
+  overview: string;
   poster_path: string;
   adult: boolean;
   vote_average: string;
+
+  spoken_languages: ReadonlyArray<IMovieLanguage>;
 }
 
 export class Movie {
